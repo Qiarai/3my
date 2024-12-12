@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快乐小鸡游戏</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            cursor: pointer;
+            background-color: #f0f8ff;
+        }
+        .chicken {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: url('https://i.imgur.com/yBvV9U1.png') no-repeat center center / contain;
+            animation: bounce 0.5s ease;
+        }
+        @keyframes bounce {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener('click', (event) => {
+            // Create a chicken element
+            const chicken = document.createElement('div');
+            chicken.className = 'chicken';
+
+            // Set position
+            chicken.style.left = `${event.clientX - 25}px`; // Center the chicken at click
+            chicken.style.top = `${event.clientY - 25}px`;
+
+            // Add the chicken to the document
+            document.body.appendChild(chicken);
+
+            // Remove the chicken after 2 seconds
+            setTimeout(() => {
+                chicken.remove();
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
